@@ -11,9 +11,16 @@ obs=obs_seq(xtrue,beacons);
 disp('Completed Simulation');
 
 % place observations in a global coordinate system
-[obs_p, state_p]=p_obs(obs,xtrue);
+% [obs_p, state_p]=p_obs(obs,xtrue);
+% figure(PLAN_FIG);
+% hold on
+% plot(obs_p(1,:),obs_p(2,:),'rx');
+% % plot(state_p(1,:),state_p(2,:),'r+');
+% hold off
+
+[obs_p, state_p]=p_obs_2(obs,xtrue,beacons);
 figure(PLAN_FIG);
 hold on
-plot(obs_p(1,:),obs_p(2,:),'rx');
-% plot(state_p(1,:),state_p(2,:),'r+');
+plot(obs_p(1,:),obs_p(2,:),'bx');
+plot(state_p(1,:),state_p(2,:),'r+');
 hold off

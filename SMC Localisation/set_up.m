@@ -61,6 +61,8 @@ utrue(1,:)=utrue(1,:)/WHEEL_RADIUS; % make speed into rads/s
 uz(1,:)=utrue(1,:)+GSIGMA_WHEEL*randn(size(utrue(1,:)));
 uz(2,:)=utrue(2,:)+GSIGMA_STEER*randn(size(utrue(2,:)));
 
+
+%%
 buf=sprintf('simulation terminating at time %f\n',i*DT);
 disp(buf);
 figure(PLAN_FIG)

@@ -1,4 +1,4 @@
-function obs_sec=obs_seq(state,beacons)
+function obs=obs_seq(state,beacons)
 
 
 % HDW 15/12/94, modified 17/05/00
@@ -13,9 +13,7 @@ if XSIZE ~= 4
   error('Incorrect state dimension')
 end
 
-% obs=zeros(4,N_STATES);
-[n_beacons,temp]=size(beacons);
-obs_sec=zeros(n_beacons+1,N_STATES);
+obs=zeros(4,N_STATES);
 
 % for i=1:N_STATES-1
 %   start_loc=state(:,i);
@@ -23,8 +21,8 @@ obs_sec=zeros(n_beacons+1,N_STATES);
 %   obs(:,i)=rad_sim(start_loc,end_loc,beacons);
 % end
 
-for i=1:N_STATES
+for i=1:N_STATES-1
   start_loc=state(:,i);
 %   obs(:,i)=rad_sim(start_loc, beacons);
-    obs_sec(:,i)=calc_dist_beacons(start_loc, beacons);
+    obs(:,i)=calc_dist(start_loc, beacons);
 end
