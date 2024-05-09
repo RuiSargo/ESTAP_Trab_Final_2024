@@ -38,7 +38,7 @@ utrue(3)=0;					% time=0
 
 % loop control
 buf=sprintf('Beginning Simulation, please wait\n');
-disp(buf)
+disp(buf);
 
 index = 1;
 for i=1:(tsize-1)

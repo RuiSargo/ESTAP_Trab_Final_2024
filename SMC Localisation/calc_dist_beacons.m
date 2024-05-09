@@ -2,7 +2,8 @@ function [obs_calc]=calc_dist_beacons(k_loc,beacons)
 
 globals;
 
-k_scale = 0.95;
+
+k_scale = K_SCALE_FACTOR; % Atualmente é 0.95
 
 [n_beacons,temp]=size(beacons);
 obs_calc=zeros(n_beacons+1,1);
