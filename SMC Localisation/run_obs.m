@@ -21,6 +21,6 @@ disp('Completed Simulation');
 [obs_p, state_p]=p_obs_2(obs,xtrue,beacons);
 figure(PLAN_FIG);
 hold on
-plot(obs_p(1,:),obs_p(2,:),'bx');
-plot(state_p(1,:),state_p(2,:),'r+');
+plot(obs_p(1,:),obs_p(2,:),'b*');
+plot(state_p(1,:),state_p(2,:),'m-');
 hold off
