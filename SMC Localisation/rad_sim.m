@@ -44,15 +44,17 @@ end
 % two lines, then it will be observed
 
 % first find location and aim of radar at start and end 
-radx1=start_loc(1) + (R_OFFSET*cos(start_loc(3)));
-rady1=start_loc(2) + (R_OFFSET*sin(start_loc(3)));
-radphi1=a_add(start_loc(4)*R_RATE,0.0); % gets normalized angle 
+% offset = 0
+radx1=start_loc(1) + (R_OFFSET*cos(start_loc(3)));%posicao em x da start loc
+rady1=start_loc(2) + (R_OFFSET*sin(start_loc(3)));%posicao y da start loc
+radphi1=a_add(start_loc(4)*R_RATE,0.0); % gets normalized angle, angulo de varrimento do radar
+
 radx2=end_loc(1) + (R_OFFSET*cos(end_loc(3)));
 rady2=end_loc(2) + (R_OFFSET*sin(end_loc(3)));
 radphi2=a_add(end_loc(4)*R_RATE,0.0); % gets normalized angle 
 
 % construct line segments for checking beacon view
-dx1=R_MAX_RANGE*cos(radphi1+start_loc(3));
+dx1=R_MAX_RANGE*cos(radphi1+start_loc(3)); % distancia em x do scan
 dy1=R_MAX_RANGE*sin(radphi1+start_loc(3));
 dx2=R_MAX_RANGE*cos(radphi2+end_loc(3));
 dy2=R_MAX_RANGE*sin(radphi2+end_loc(3));

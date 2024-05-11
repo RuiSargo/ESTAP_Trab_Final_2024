@@ -14,7 +14,7 @@ pause;
 randn('state',sum(100*clock));
 
 % initialise filter
-xinit(:,1)=xtrue(1,1)+IXERR*(randn(NUM_P,1)-0.5);
+xinit(:,1)=xtrue(1,1)+IXERR*(randn(NUM_P,1)-0.5); % previsao inicial da posicao em x
 xinit(:,2)=xtrue(2,1)+IYERR*(randn(NUM_P,1)-0.5);
 xinit(:,3)=xtrue(3,1)+IPHIERR*(randn(NUM_P,1)-0.5);
 xinit(:,4)=WHEEL_RADIUS+IRERR*(randn(NUM_P,1)-0.5);

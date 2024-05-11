@@ -12,11 +12,21 @@ globals;
 if XSIZE ~= 4
   error('Incorrect state dimension')
 end
+[N_BEACONS,temp]=size(beacons)
+if (temp ~= 2)
+  error('Incorrect Size for beacon map')
+end
 
-obs=zeros(4,N_STATES);
+disp(N_BEACONS)
+%obs=zeros(4,N_STATES);
+obs=zeros(N_BEACONS+1,N_STATES);
 
-for i=1:N_STATES-1
-  start_loc=state(:,i);
-  end_loc=state(:,i+1);
-  obs(:,i)=rad_sim(start_loc,end_loc,beacons);
+
+for i=1:N_STATES
+   %start_loc=state(:,i);
+   %end_loc=state(:,i+1);
+   %obs(:,i)=rad_sim(start_loc,end_loc,beacons);
+   location = state(:,i);
+   obs(:,i) = dist_beacon(location,beacons);
+
 end
