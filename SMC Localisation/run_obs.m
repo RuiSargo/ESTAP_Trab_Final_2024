@@ -22,5 +22,6 @@ disp('Completed Simulation');
 figure(PLAN_FIG);
 hold on
 plot(obs_p(1,:),obs_p(2,:),'b*');
+scatter(beacons(:,1),beacons(:,2),'pentagram','r','filled')
 plot(state_p(1,:),state_p(2,:),'m-');
 hold off

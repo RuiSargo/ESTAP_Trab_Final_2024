@@ -1,7 +1,7 @@
 
 % first compute the mean trajectory
 
-xmean=mean(squeeze(xtrack(:,1,:)));
+xmean=mean(squeeze(xtrack(:,1,:))); % remover dimensões de comprimento 1 
 ymean=mean(squeeze(xtrack(:,2,:)));
 
 figure(PLAN_FIG+1)
