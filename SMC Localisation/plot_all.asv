@@ -3,17 +3,8 @@
 
 xmean=mean(squeeze(xtrack(:,1,:))); % remover dimensões de comprimento 1 
 ymean=mean(squeeze(xtrack(:,2,:)));
-
-figure(PLAN_FIG+2)
-hold on
 kmean=mean(squeeze(xtrack(:,5,:)));
-plot(kmean)
-title('Valor estimado do fator de escala K')
-xlabel('Observations')
-ylabel('K')
-hold off
-
-
+p
 
 figure(PLAN_FIG+1)
 hold on
@@ -39,19 +30,3 @@ title('Particle Filter Localisation')
 xlabel('X location (m)')
 ylabel('Y location (m)')
 hold off
-
-figure(PLAN_FIG+3)
-tiledlayout(2,1)
-
-x_err = xtrue(1,:) - xmean;
-y_err = xtrue(2,:) - ymean;
-
-ax1 = nexttile;
-plot(ax1,xmean)
-ylabel('X mean')
-
-ax2 = nexttile;
-plot(ax2,ymean)
-ylabel('Y mean')
-xlabel('Observations')
-

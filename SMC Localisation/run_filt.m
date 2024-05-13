@@ -23,6 +23,7 @@ xinit(:,2)=xtrue(2,1)+IYERR*(randn(NUM_P,1)-0.5);
 xinit(:,3)=xtrue(3,1)+IPHIERR*(randn(NUM_P,1)-0.5);
 xinit(:,4)=WHEEL_RADIUS+IRERR*(randn(NUM_P,1)-0.5);
 xinit(:,5)=K_SCALE_FACTOR + IKERR*(randn(NUM_P,1)-0.5); 
+
 % estamos a dar um valor de fator de escala inicial a cada particula,
 % shiftado -0.5 para ver o filtro a convergir 
 
@@ -39,7 +40,7 @@ winit=ones(NUM_P,1)/NUM_P;
 
 %run filter     
 % [xtrack,wtrack]=pfilter(obs,utrue,xinit,winit,beacons);
-%[xtrack,wtrack]=pfilter2(obs,utrue,xinit,winit,beacons);
+[xtrack,wtrack]=pfilter2(obs,utrue,xinit,winit,beacons);
 
 %disp('Completed Filtering')
      
