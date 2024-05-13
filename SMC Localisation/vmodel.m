@@ -10,7 +10,9 @@ function x=vmodel(x,u,dt,t_flag)
 
 globals;
 
-[nsamps,nstates]=size(x);
+[num_particulas,nstates]=size(x); % nsamps = num_particulas
+
+SIGMA_K = 0.05;
 
 % compute control inputs
 % if t_flag set, then no noise on inputs
@@ -20,9 +22,10 @@ if t_flag
    gamma=u(2);
    radius=WHEEL_RADIUS;
 else
-   omega=u(1)+dt*SIGMA_W*randn(nsamps,1);
-   gamma=u(2)+dt*SIGMA_S*randn(nsamps,1);
-   radius=x(:,4)+dt*SIGMA_R*randn(nsamps,1);
+   omega=u(1)+dt*SIGMA_W*randn(num_particulas,1); % espalha particulas pela velocidade angular
+   gamma=u(2)+dt*SIGMA_S*randn(num_particulas,1); % semelhante a cima para gamma
+   radius=x(:,4)+dt*SIGMA_R*randn(num_particulas,1);
+   scale_factor = x(:,5)+dt*SIGMA_K*randn(num_particulas,1);
 end
 
 % compute a term that is used a lot
@@ -33,3 +36,4 @@ x(:,1)=x(:,1)+dV.*cos(gamma+x(:,3));
 x(:,2)=x(:,2)+dV.*sin(gamma+x(:,3));
 x(:,3)=x(:,3)+dV.*sin(gamma)/WHEEL_BASE;
 x(:,4)=radius;
+x(:,5)=scale_factor;

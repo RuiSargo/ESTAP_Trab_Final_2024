@@ -12,6 +12,7 @@ global KO;				% vehicle orientation error gain
 
 global WHEEL_BASE;	% vehicle wheel base (m)
 global WHEEL_RADIUS; % nominal wheel radius
+global K_SCALE_FACTOR; % scale factor gain k
 global R_OFFSET;		% radar offset along centre axis
 global R_MAX_RANGE;  % maximum radar range
 global R_RATE;			% rotation rate of radar

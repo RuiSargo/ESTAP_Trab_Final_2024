@@ -4,22 +4,25 @@
 
 globals; 	% define global variables
 ginit;  		% set global variables
-
+load('add_beacons.mat')
+load('add_path.mat')
 % first step is to input beacons
-disp('Input Beacon Locations via mouse. Press return to end');
-beacons=get_beacons;
+%disp('Input Beacon Locations via mouse. Press return to end');
+%beacons=get_beacons;
+
 [n_beacons,temp]=size(beacons);
 buf=sprintf('%d Beacons read\n',n_beacons);
 disp(buf);
 
 % Next, input path spline points and compute path
-disp('Input path spline points via mouse. Press return to end');
-path=get_path(beacons);
+%disp('Input path spline points via mouse. Press return to end');
+%path=get_path(beacons);
+
 [temp,n_path]=size(path);
 buf=sprintf('%d Path points of total Length %f meters read\n',n_path,n_path*LINC);
 disp(buf);
-disp('Press Return to continue'); 
-pause;
+%disp('Press Return to continue'); 
+%pause;
 
 % do controller to build true path and control vectors
 % initialise
@@ -38,7 +41,7 @@ utrue(3)=0;					% time=0
 
 % loop control
 buf=sprintf('Beginning Simulation, please wait\n');
-disp(buf)
+disp(buf);
 
 index = 1;
 for i=1:(tsize-1)
@@ -61,10 +64,13 @@ utrue(1,:)=utrue(1,:)/WHEEL_RADIUS; % make speed into rads/s
 uz(1,:)=utrue(1,:)+GSIGMA_WHEEL*randn(size(utrue(1,:)));
 uz(2,:)=utrue(2,:)+GSIGMA_STEER*randn(size(utrue(2,:)));
 
+
+%
 buf=sprintf('simulation terminating at time %f\n',i*DT);
 disp(buf);
 figure(PLAN_FIG)
 hold on
+scatter(beacons(:,1),beacons(:,2),'pentagram','r','filled')
 plot(xtrue(1,:),xtrue(2,:),'g')
 hold off
 

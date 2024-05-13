@@ -10,6 +10,8 @@ VVEL=2;				% Vehicle velocity (assumed constant)
 KP=1;					% vehicle position error gain
 KO=1;					% vehicle orientation error gain
 
+K_SCALE_FACTOR=0.90;
+
 WHEEL_BASE=1;		% vehicle wheel base (m)
 WHEEL_RADIUS=0.3;  % nomial wheel radius (m)
 R_OFFSET=0.0;		% radar offset (m)
