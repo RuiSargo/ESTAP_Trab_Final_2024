@@ -30,6 +30,7 @@ for t=1:SSIZE
             
 %             angle_tan = atan((by-ry)/(bx-rx));
             dist_true = sqrt((bx-rx)^2+(by-ry)^2);
+            % c atan2
 %             disp(['dist=',num2str(dist), ' and true_dist=', num2str(true_dist), ' dif= ', num2str(abs(true_dist-dist)), ' and ', num2str(100*abs(true_dist-dist)/true_dist), '%'])
             angle_sin = asin((by-ry)/dist_obs);
             angle_cos = acos((bx-rx)/dist_obs);
