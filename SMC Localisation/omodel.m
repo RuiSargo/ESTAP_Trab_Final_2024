@@ -22,7 +22,7 @@ dy=beacons(index,2)-x(:,2); %distancia de cada particula em y
 
 
 % compute normalised range and bearing error
-nrange_err=(sqrt(dx.*dx + dy.*dy)-range)/SIGMA_RANGE;
+nrange_err=( (x(:,5) .* (sqrt(dx.*dx + dy.*dy)) - range) ) / SIGMA_RANGE;
 
 %nbearing_err=a_sub(a_sub(atan2(dy,dx),x(:,3)),bearing)/SIGMA_BEARING;
 
@@ -32,6 +32,8 @@ nrange_err=(sqrt(dx.*dx + dy.*dy)-range)/SIGMA_RANGE;
 % w=w.*exp(-(nrange_err.*nrange_err + nbearing_err.*nbearing_err)/2.0);
 
 w=w.*exp(-(nrange_err.*nrange_err)/2.0);
+
+
 w=w/sum(w);
 
 

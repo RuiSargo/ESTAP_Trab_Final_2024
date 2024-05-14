@@ -4,25 +4,25 @@
 
 globals; 	% define global variables
 ginit;  		% set global variables
-load('add_beacons.mat')
-load('add_path.mat')
+%load('add_beacons.mat')
+%load('add_path.mat')
 % first step is to input beacons
 %disp('Input Beacon Locations via mouse. Press return to end');
-%beacons=get_beacons;
+beacons=get_beacons;
 
 [n_beacons,temp]=size(beacons);
 buf=sprintf('%d Beacons read\n',n_beacons);
 disp(buf);
 
 % Next, input path spline points and compute path
-%disp('Input path spline points via mouse. Press return to end');
-%path=get_path(beacons);
+disp('Input path spline points via mouse. Press return to end');
+path=get_path(beacons);
 
 [temp,n_path]=size(path);
 buf=sprintf('%d Path points of total Length %f meters read\n',n_path,n_path*LINC);
 disp(buf);
-%disp('Press Return to continue'); 
-%pause;
+disp('Press Return to continue'); 
+pause;
 
 % do controller to build true path and control vectors
 % initialise

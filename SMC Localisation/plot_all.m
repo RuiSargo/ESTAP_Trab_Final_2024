@@ -47,11 +47,11 @@ x_err = xtrue(1,:) - xmean;
 y_err = xtrue(2,:) - ymean;
 
 ax1 = nexttile;
-plot(ax1,xmean)
+plot(ax1,x_err)
 ylabel('X mean')
 
 ax2 = nexttile;
-plot(ax2,ymean)
+plot(ax2,y_err)
 ylabel('Y mean')
 xlabel('Observations')
 
