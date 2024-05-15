@@ -28,16 +28,10 @@ for t=1:SSIZE
             bx = beacons(b_index,1);
             by = beacons(b_index,2);
             
-%             angle_tan = atan((by-ry)/(bx-rx));
+            angle_tan = atan2((by-ry),(bx-rx));
             dist_true = sqrt((bx-rx)^2+(by-ry)^2);
-            % c atan2
-%             disp(['dist=',num2str(dist), ' and true_dist=', num2str(true_dist), ' dif= ', num2str(abs(true_dist-dist)), ' and ', num2str(100*abs(true_dist-dist)/true_dist), '%'])
-            angle_sin = asin((by-ry)/dist_obs);
-            angle_cos = acos((bx-rx)/dist_obs);
-%             disp(['angle_sin=', num2str(angle_sin), ' angle_cos=', num2str(angle_cos), ' angle_tan=', num2str(angle_tan)]);
-            
-            obs_p(1,nr_obs)= rx + (dist_true * cos(angle_cos));
-            obs_p(2,nr_obs)= ry + (dist_true * sin(angle_sin));
+            obs_p(1,nr_obs)= rx + (dist_true * cos(angle_tan));
+            obs_p(2,nr_obs)= ry + (dist_true * sin(angle_tan));            
             
 %             state_p(1,nr_obs)=rx;
 %             state_p(2,nr_obs)=ry;
