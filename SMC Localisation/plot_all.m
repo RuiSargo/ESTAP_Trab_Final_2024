@@ -1,3 +1,4 @@
+close all
 
 % first compute the mean trajectory
 

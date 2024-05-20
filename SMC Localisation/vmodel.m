@@ -12,7 +12,7 @@ globals;
 
 [num_particulas,nstates]=size(x); % nsamps = num_particulas
 
-SIGMA_K = 0.001; % avaliar sigma, variaçao k
+SIGMA_K = 0.2; % avaliar sigma, variaçao k
 
 % compute control inputs
 % if t_flag set, then no noise on inputs

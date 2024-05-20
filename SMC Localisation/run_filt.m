@@ -7,7 +7,7 @@ IPHIERR=0.1;
 IRERR=0.1;
 
 
-IKERR=0.01; % valor inicial para calculo do erro de escala 
+IKERR=0.1; % valor inicial para calculo do erro de escala 
 
 NUM_P=1000; % number of particles
 

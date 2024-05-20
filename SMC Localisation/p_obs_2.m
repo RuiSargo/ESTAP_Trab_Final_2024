@@ -24,15 +24,17 @@ for t=1:SSIZE
         dist_obs = obs(b_index, t);
         if ~(isnan(dist_obs))
             nr_obs=nr_obs+1;
+            dist_obs = obs(b_index,t);
             
             bx = beacons(b_index,1);
             by = beacons(b_index,2);
             
             angle_tan = atan2((by-ry),(bx-rx));
-            dist_true = sqrt((bx-rx)^2+(by-ry)^2);
-            obs_p(1,nr_obs)= rx + (dist_true * cos(angle_tan));
-            obs_p(2,nr_obs)= ry + (dist_true * sin(angle_tan));            
-            
+            %dist_true = sqrt((bx-rx)^2+(by-ry)^2);
+            % obs_p(1,nr_obs)= rx + (dist_true * cos(angle_tan));
+            % obs_p(2,nr_obs)= ry + (dist_true * sin(angle_tan));            
+            obs_p(1,nr_obs)= rx + (dist_obs * cos(angle_tan));
+            obs_p(2,nr_obs)= ry + (dist_obs * sin(angle_tan));    
 %             state_p(1,nr_obs)=rx;
 %             state_p(2,nr_obs)=ry;
         end
